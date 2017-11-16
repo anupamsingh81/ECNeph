@@ -203,7 +203,7 @@ image_write(animation, "/home/anupam/bumpeez.gif")
 
 
 # networks from scrape data
-
+library(tidyverse)
 raw = ecneph %>% select(user,text)
 
 for (i in 1:length(raw$text)) { #Extract the usernames from the tweets mentions = 
@@ -232,7 +232,7 @@ edges= lst_1 %>% gather(variable,target,V1:V9) %>% select(source,target) # make 
 
 edges1 = na.omit(edges) # omit NA i.e no mentions
 
-
+write.csv(edges1,"edge.csv")
 str(edges1)
 edges1$source = as.character(edges1$source) # convert factor into character
 
